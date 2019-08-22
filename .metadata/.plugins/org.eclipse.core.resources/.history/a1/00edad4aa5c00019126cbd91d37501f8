@@ -1,0 +1,7 @@
+package org.anse.dao;
+
+public interface CategoryDAO {
+
+	public String getTime();
+	
+}

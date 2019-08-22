@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.CategoryMapper" >
+
+	<select id = "getTime" resultType="string">
+	select trunc(sysdate) from dual
+	</select>
+	
+	<insert id="insertCategory" resultType="org.anse.vo.CategoryVO">
+		INSERT INTO T_CTG_INFO (
+		    CTG_ID,
+		    CTG_NM,
+		    CTG_DEPTH,
+		    UP_CTG_ID,
+		    DISP_YN,
+		    SORT_NO,
+		    REG_DT,
+		    MOD_DT
+		) VALUES (
+		    SEQ_CTG_NO.NEXTVAL,
+		    #{ctgNm},
+		    #{ctgDepth},
+		    #{upCtgId},
+		    #{dispYn},
+		    #{sortNo},
+		    SYSDATE,
+		    SYSDATE
+		)
+	</insert>
+</mapper>

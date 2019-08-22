@@ -1,0 +1,39 @@
+package org.anse.web;
+
+import org.anse.domain.CategoryVO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class SampleContoller {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SampleContoller.class);
+	
+	@RequestMapping("doA")
+	public void doA() {
+		logger.info("doA called----------------------------");
+	}
+
+	@RequestMapping("doB")
+	public void doB() {
+		logger.info("doB called----------------------------");
+	}
+	
+	@RequestMapping("doC")
+	public String doC( @ModelAttribute("msg") String msg) {	// doC?msg=testStr
+		return "result";
+	}
+	
+	@RequestMapping("doD")
+	public String doD(Model model) {
+		CategoryVO ctgVo = new CategoryVO("aa","22");
+		
+		model.addAttribute("ctgVOO" ,ctgVo);
+		
+		return "result";
+	}
+}

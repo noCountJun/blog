@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+<fullyQualifiedTypeName name="org.anse.web.SampleContoller"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.support.RedirectAttributes"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
+<fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
+<fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+<fullyQualifiedTypeName name="org.slf4j.Logger"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+</qualifiedTypeNameHistroy>

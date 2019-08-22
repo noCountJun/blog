@@ -1,0 +1,8 @@
+package org.anse.service;
+
+import org.anse.vo.CategoryVO;
+
+public interface CategoryService {
+
+	public void insertCategory(CategoryVO categoryVo) throws Exception;
+}

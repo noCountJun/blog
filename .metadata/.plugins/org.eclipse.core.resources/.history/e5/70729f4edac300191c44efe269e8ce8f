@@ -1,0 +1,29 @@
+package org.anse.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.anse.dao.BoardDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private BoardDAO boardDao;
+	
+
+	@Override
+	public List<Map<String, Object>> getBoardList(Map<String, Object> params) {
+		List<Map<String, Object>> boardList = new ArrayList<>();
+		// 1depth 카테고리의 경우 하위 카테고리 글목록 전체 조회
+		if("1".equals(String.valueOf(params.get("ctgDepth")))) {
+		// 2depth인경우 해당 카테고리의 글목록만 조회
+		} else {
+			
+		}
+		return boardList;
+	}
+}

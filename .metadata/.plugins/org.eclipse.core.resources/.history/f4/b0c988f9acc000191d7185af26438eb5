@@ -1,0 +1,5 @@
+package org.anse.service;
+
+public interface CategoryService {
+
+}

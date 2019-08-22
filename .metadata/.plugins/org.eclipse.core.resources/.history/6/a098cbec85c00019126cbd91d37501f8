@@ -1,0 +1,5 @@
+package org.anse.dao;
+
+public interface CatagoryDAO {
+
+}

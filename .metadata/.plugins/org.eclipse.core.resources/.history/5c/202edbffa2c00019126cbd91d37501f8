@@ -1,0 +1,24 @@
+package org.anse.vo;
+
+public class CategoryVO {
+	private String ctgId;
+
+	private String ctgNm;
+	
+	public CategoryVO(String ctgId, String ctgNm) {
+		super();
+		this.ctgId = ctgId;
+		this.ctgNm = ctgNm;
+	}
+	
+	public String getCtgId() {
+		return ctgId;
+	}
+	public String getCtgNm() {
+		return ctgNm;
+	}
+
+	public String toString() {
+		return "Category VO [ctgId=" + ctgId + ", ctgNm = " +ctgNm+"]";
+	}
+}

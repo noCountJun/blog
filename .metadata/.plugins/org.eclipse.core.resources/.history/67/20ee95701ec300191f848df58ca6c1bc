@@ -1,0 +1,34 @@
+package org.anse.dao;
+
+import java.util.Map;
+
+import javax.inject.Inject;
+
+import org.anse.vo.CategoryVO;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CateogryDAOImpl implements CategoryDAO {
+
+	@Inject
+	private SqlSession sqlSession;
+	
+	private static final String nameSpace = "mapper.CategoryMapper";
+	@Override
+	public String getTime() {
+		return sqlSession.selectOne(nameSpace+".getTime");
+	}
+	
+	@Override
+	public void insertCategory(CategoryVO categoryVo) throws Exception {
+		sqlSession.insert(nameSpace+".insertCategory", categoryVo);
+	}
+	
+	
+	@Override
+	public void getCategoryList(Map<String, Object> params) throws Exception {
+		sqlSession.insert(nameSpace+".insertCategory", params);
+	}
+
+}

@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sat Aug 17 07:57:10 KST 2019
+org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\ansejjang\\.m2\\repository\\org\\springframework\\spring-web\\4.3.8.RELEASE\\spring-web-4.3.8.RELEASE.jar=D\:\\blogProject\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\blogProject2\\WEB-INF\\lib\\spring-web-4.3.8.RELEASE.jar
+org.eclipse.jst.jee.server\:blogProject2=D\:\\blogProject\\sts-bundle\\pivotal-tc-server\\instances\\base-instance\\wtpwebapps\\blogProject2
