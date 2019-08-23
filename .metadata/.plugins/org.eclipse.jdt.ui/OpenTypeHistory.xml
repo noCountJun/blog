@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=blogProject/src\/main\/java&lt;org.anse.dao{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1565584277223"/>
-<typeInfo handle="=blogProject2/src\/main\/java&lt;org.anse.dao{CategoryDAO.java[CategoryDAO" modifiers="513" timestamp="1566287410615"/>
-<typeInfo handle="=blogProject2/src\/main\/java&lt;org.anse.service{CategoryService.java[CategoryService" modifiers="513" timestamp="1566287386653"/>
+<typeInfo handle="=blogProject2/src\/main\/java&lt;org.anse.dao{CategoryDAO.java[CategoryDAO" modifiers="513" timestamp="1566375094239"/>
+<typeInfo handle="=blogProject2/src\/main\/java&lt;org.anse.service{CategoryService.java[CategoryService" modifiers="513" timestamp="1566375094385"/>
 </typeInfoHistroy>

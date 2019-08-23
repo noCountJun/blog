@@ -1,0 +1,24 @@
+package org.anse.service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.anse.vo.CategoryVO;
+
+public interface BoardService {
+
+	/**
+	 * 게시글 리스트 조회
+	 * @param params
+	 * @return
+	 */
+	public List<Map<String, Object>> getBoardList(Map<String, Object> params);
+	
+	
+	/**
+	 * 게시글 상세 조회
+	 * @param params
+	 * @return
+	 */
+	public Map<String, Object> getBoardInfo(Map<String, Object> params);
+}

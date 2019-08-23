@@ -6,5 +6,26 @@ import java.util.Map;
 import org.anse.vo.CategoryVO;
 
 public interface BoardDAO {
+	
+	/**
+	 * 게시글 리스트 조회
+	 * @param params
+	 * @return
+	 */
 	public List<Map<String, Object>> getBoardList(Map<String, Object> params);
+	
+	
+	/**
+	 * 게시글 상세 조회
+	 * @param params
+	 * @return
+	 */
+	public Map<String, Object> getBoardInfo(Map<String, Object> params);
+	
+	
+	/**
+	 * 조회수 업데이트
+	 * @param params
+	 */
+	public void updateViewCnt(Map<String, Object> params);
 }

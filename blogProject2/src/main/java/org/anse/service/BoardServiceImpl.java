@@ -18,4 +18,14 @@ public class BoardServiceImpl implements BoardService {
 	public List<Map<String, Object>> getBoardList(Map<String, Object> params) {
 		return boardDao.getBoardList(params);
 	}
+
+	@Override
+	public Map<String, Object> getBoardInfo(Map<String, Object> params) {
+		return boardDao.getBoardInfo(params);
+	}
+	
+	@Override
+	public void updateViewCnt(Map<String, Object> params) {
+		boardDao.updateViewCnt(params);
+	}
 }

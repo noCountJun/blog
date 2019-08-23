@@ -16,16 +16,11 @@ public class CateogryDAOImpl implements CategoryDAO {
 	private SqlSession sqlSession;
 	
 	private static final String nameSpace = "mapper.CategoryMapper";
-	@Override
-	public String getTime() {
-		return sqlSession.selectOne(nameSpace+".getTime");
-	}
 	
 	@Override
 	public void insertCategory(CategoryVO categoryVo) throws Exception {
 		sqlSession.insert(nameSpace+".insertCategory", categoryVo);
 	}
-	
 	
 	@Override
 	public List<Map<String, Object>> getCategoryList() {

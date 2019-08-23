@@ -28,8 +28,8 @@
 	</insert>
 	
 	<select id="getCategoryList" resultType="Map">
-		/* categoryMapper.xml-> getCategoryList 카테고리 리스트 Return */
-		SELECT CTG_ID
+		SELECT /* categoryMapper.xml-> getCategoryList 카테고리 리스트 Return */
+			   CTG_ID
 			 , CTG_NM
 			 , CTG_DEPTH
 			 , UP_CTG_ID
@@ -47,8 +47,8 @@
 	</select>
 
 	<select id="getCategoryInfo" resultType="Map" parameterType="Map">
-		/* categoryMapper.xml-> getCategoryInfo 카테고리 정보 Return */
-		SELECT CTG_ID
+		SELECT /* categoryMapper.xml-> getCategoryInfo 카테고리 정보 Return */
+			   CTG_ID
 			 , CTG_NM
 			 , CTG_DEPTH
 			 , UP_CTG_ID

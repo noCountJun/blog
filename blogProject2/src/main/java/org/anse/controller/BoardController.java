@@ -27,38 +27,67 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
+	/**
+	 * 게시글 리스트
+	 * @param model
+	 * @param ctgId
+	 * @param ctgDepth
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="/boardList/{ctgId}/{ctgDepth}", method=RequestMethod.GET)
 	public String boardList( Model model, @PathVariable("ctgId") String ctgId, @PathVariable("ctgDepth") String ctgDepth ) throws Exception {
-		// 1. 카테고리 리스트 조회
+		// 1. 카테고리 리스트 조회 (LNB)
 		List<Map<String,Object>> categoryList = new ArrayList<>();
 		categoryList = categoryService.getCategoryList();
 		model.addAttribute("categoryList", categoryList);
 		
-		
+		// 2. 파라미터 세팅
 		Map<String, Object> params = new HashMap<>();	
-		params.put("ctgId", ctgId);
-		params.put("ctgDepth", ctgDepth);
+		params.put("ctgId"		, ctgId);
+		params.put("ctgDepth"	, ctgDepth);
 
-		// 2. 클릭한 카테고리 정보
+		// 3. 클릭한 카테고리 정보
 		Map<String,Object> categoryInfo = categoryService.getCategoryInfo(params);
 
-		// 3. 카테고리 별 게시글 리스트 조회
+		// 4. 카테고리 별 게시글 리스트 조회
 		List<Map<String,Object>> boardList = new ArrayList<>();
-				
 		boardList = boardService.getBoardList(params);
 
 		
-		model.addAttribute("boardList", boardList);
-		model.addAttribute("categoryInfo", categoryInfo);
+		model.addAttribute("boardList"		, boardList);
+		model.addAttribute("categoryInfo"	, categoryInfo);
 		
 		return "board/boardList";
 	}
-	
-	@RequestMapping(value="/bootTest", method=RequestMethod.GET)
-	public String bootTest( Model model ) throws Exception {
-		model.addAttribute("boardList", "aaa");
+
+	/**
+	 * 게시글 상세
+	 * @param model
+	 * @param brdId
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value="/boardDetail/{brdId}", method=RequestMethod.GET)
+	public String boardDetail( Model model, @PathVariable("brdId") String brdId) throws Exception {
+		// 1. 카테고리 리스트 조회 (LNB)
+		List<Map<String,Object>> categoryList = new ArrayList<>();
+		categoryList = categoryService.getCategoryList();
+		model.addAttribute("categoryList", categoryList);
 		
-		return "board/bootTest";
-		//return "board/bootTest";
+		// 2. 파라미터 세팅
+		Map<String, Object> params = new HashMap<>();	
+		params.put("brdId", brdId);
+		
+		// 3. 상세 진입시 조회수 업데이트
+		boardService.updateViewCnt(params);
+		
+		// 3. 클릭한 게시글 상세정보
+		Map<String,Object> boardInfo = boardService.getBoardInfo(params);
+		model.addAttribute("boardInfo", boardInfo);
+		
+		
+		return "board/boardDetail";
 	}
+	
 }

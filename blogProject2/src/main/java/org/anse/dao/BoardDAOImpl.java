@@ -20,6 +20,16 @@ public class BoardDAOImpl implements BoardDAO {
 	@Override
 	public List<Map<String, Object>> getBoardList(Map<String, Object> params) {
 		return sqlSession.selectList(nameSpace+".getBoardList", params);
+	}
+	
+	@Override
+	public Map<String, Object> getBoardInfo(Map<String, Object> params) {
+		return sqlSession.selectOne(nameSpace+".getBoardInfo", params);
+	}
+	
+	@Override
+	public void updateViewCnt(Map<String, Object> params) {
+		sqlSession.update(nameSpace+".updateViewCnt", params);
 		
 	}
 
