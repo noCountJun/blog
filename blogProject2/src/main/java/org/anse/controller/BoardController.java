@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.anse.service.BoardService;
 import org.anse.service.CategoryService;
+import org.anse.service.CommentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
+	
+	@Autowired
+	private CommentService commentService;
 
 	/**
 	 * 게시글 리스트
@@ -82,10 +86,14 @@ public class BoardController {
 		// 3. 상세 진입시 조회수 업데이트
 		boardService.updateViewCnt(params);
 		
-		// 3. 클릭한 게시글 상세정보
+		// 4. 클릭한 게시글 상세정보
 		Map<String,Object> boardInfo = boardService.getBoardInfo(params);
 		model.addAttribute("boardInfo", boardInfo);
 		
+		// 5. 댓글 리스트 조회
+		List<Map<String,Object>> commentList = new ArrayList<>();
+		commentList = commentService.getCommentList(params);
+		model.addAttribute("commentList", commentList);
 		
 		return "board/boardDetail";
 	}

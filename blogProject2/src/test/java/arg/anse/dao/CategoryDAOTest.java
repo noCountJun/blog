@@ -16,11 +16,6 @@ public class CategoryDAOTest {
 	private CategoryDAO dao;
 	
 	@Test
-	public void testTime() throws Exception {
-		System.out.println(dao.getTime());
-	}
-	
-	@Test
 	public void insertCategoryTest() throws Exception {
 		CategoryVO categoryVo = new CategoryVO();
 		

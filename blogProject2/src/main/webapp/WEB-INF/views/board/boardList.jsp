@@ -32,7 +32,7 @@
 						<tr>
 							<td>${boardInfo.RN}</td>
 							<td><a href="/board/boardDetail/${boardInfo.BRD_ID}">(${boardInfo.CTG_NM}) &nbsp;&nbsp;&nbsp;${boardInfo.BRD_TITLE}</a></td>
-							<td>${boardInfo.REG_DT}"</td>
+							<td>${boardInfo.REG_DT}</td>
 							<td>${boardInfo.VIEW_CNT}</td>
 						</tr>
 					</c:forEach>
