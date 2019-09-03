@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="updateViewCnt"/>
+		<item key="selection" value="Paging"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Paging"/>
+			<item value="commentList[i]"/>
+			<item value="2.75"/>
+			<item value="height"/>
+			<item value="delete"/>
+			<item value="commentForm"/>
+			<item value="selectCommentListAjax"/>
+			<item value="alert"/>
+			<item value="insertCommentAjax"/>
+			<item value="input"/>
+			<item value="width"/>
+			<item value="toLower"/>
+			<item value="hr"/>
 			<item value="updateViewCnt"/>
 			<item value="&lt;c"/>
-			<item value="box"/>
-			<item value="getCategoryInfo"/>
-			<item value="params"/>
-			<item value="select"/>
-			<item value="lazyluke"/>
-			<item value="action"/>
-			<item value="Pagination"/>
-			<item value="table"/>
-			<item value="Default"/>
-			<item value="side"/>
-			<item value="sideba"/>
-			<item value="body"/>
-			<item value="tile"/>
 		</list>
 		<list key="replacehistory">
+			<item value="commentInfo"/>
 			<item value="/resources/images/"/>
 			<item value="/resources/assets/"/>
 			<item value="resources/assets/"/>

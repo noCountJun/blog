@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.BoardMapper" >
+
+	<select id="getBoardList" resultType="Map" parameterType="Map">
+		<include refid="mapper.commonMapper.prePaging"/>
+		 SELECT /* boardMapper.xml-> getBoardList 게시글 리스트 Return */ 
+		 	  , B.CTG_NM
+		 	  , B.UP_CTG_ID
+		 	  , A.BRD_ID
+	          , A.CTG_ID
+	          , A.BRD_TITLE
+	          , A.BRD_CONT
+	          , A.DISP_YN
+	          , A.VIEW_CNT
+	          , TO_CHAR(A.REG_DT, 'YYYY.MM.DD') AS REG_DT
+	          , A.BRD_CONT_CLOB
+	       FROM T_BRD_INFO A
+	          , T_CTG_INFO B
+	      WHERE A.CTG_ID = B.CTG_ID
+	    <choose>
+   			<when test = 'ctgDepth == 1'>
+   				AND B.UP_CTG_ID = #{ctgId}
+   			</when>
+   			<otherwise>
+   				AND B.CTG_ID = #{ctgId} 
+   			</otherwise>
+		</choose>
+	      AND A.DISP_YN = 'Y'
+	      AND B.DISP_YN = 'Y'
+		 ORDER BY A.REG_DT DESC, A.BRD_ID DESC
+	</select>
+	
+	
+	<select id="getBoardInfo" resultType="Map" parameterType="Map">
+		SELECT /* boardMapper.xml-> getBoardInfo 게시글 상세 정보 Return */
+				 BRD_ID
+		       , BRD_TITLE
+		       , BRD_CONT
+		       , DISP_YN
+		       , VIEW_CNT
+		       , TO_CHAR(REG_DT, 'YYYY.MM.DD HH24:MI:SS') AS REG_DT
+		       , TO_CHAR(MOD_DT, 'YYYY.MM.DD HH24:MI:SS') AS MOD_DT
+		       , PRE_TITLE_ID
+		       , PRE_TITLE
+		       , NEXT_TITLE_ID
+		       , NEXT_TITLE
+		       , BRD_CONT_CLOB
+		    FROM (
+		        SELECT BRD_ID, BRD_TITLE, BRD_CONT, DISP_YN, VIEW_CNT, REG_DT, MOD_DT, BRD_CONT_CLOB, 
+		               LAG(BRD_ID, 1, '0') OVER (ORDER BY BRD_ID) PRE_TITLE_ID,      -- 이전글
+		               LAG(BRD_TITLE, 1, '없음') OVER (ORDER BY BRD_ID) PRE_TITLE,     -- 이전글
+		               LEAD(BRD_ID, 1, '0') OVER (ORDER BY BRD_ID) NEXT_TITLE_ID,  -- 다음글
+		               LEAD(BRD_TITLE, 1, '없음') OVER (ORDER BY BRD_ID) NEXT_TITLE  -- 다음글
+		          FROM T_BRD_INFO
+		         WHERE DISP_YN = 'Y'
+		    )
+			WHERE BRD_ID = #{brdId}
+	</select>
+	
+	
+	<update id="updateViewCnt" parameterType="Map">
+		UPDATE /* boardMapper.xml-> updateViewCnt 조회수 업데이트 */
+			   T_BRD_INFO 
+		   SET VIEW_CNT = VIEW_CNT + 1 
+		 WHERE BRD_ID = #{brdId}
+	</update>
+</mapper>

@@ -11,29 +11,13 @@
 				<input type="text" name="query" id="query" placeholder="Search" />
 			</form>
 		</section>
-
-		<!-- Section -->
-		<section>
-			<header class="major">
-				<h2>home</h2>
-			</header>
-			<div class="mini-posts">
-				<article>
-					<a href="#" class="image"><img src="/resources/images/pic07.jpg" alt="" /></a>
-					<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-				</article>
-			</div>
-			<ul class="actions">
-				<li><a href="#" class="button">More</a></li>
-			</ul>
-		</section>
 		
 		<!-- Menu -->
 		<nav id="menu">
 			<header class="major">
 				<h2>category</h2>
 			</header>
-			<ul>
+			<ul >
 			
 			
 			<c:if test="${not empty categoryList}">
@@ -42,10 +26,10 @@
 						<a href="/board/boardList/${categoryInfo.CTG_ID}/${categoryInfo.CTG_DEPTH}">
 							<c:choose>
 						        <c:when test="${categoryInfo.CTG_DEPTH eq '1'}">
-						            <h2>${categoryInfo.CTG_NM}</h2>
+						            <h2 style="font-size:15px;">${categoryInfo.CTG_NM}</h2>
 						        </c:when>         
 						        <c:otherwise>
-						            <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${categoryInfo.CTG_NM}</h4>
+						            <h2 style="font-size:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- &nbsp;${categoryInfo.CTG_NM}</h4>
 								</c:otherwise>
 						    </c:choose>
 							
@@ -57,6 +41,23 @@
 			</ul>
 		</nav>
 
+
+		<!-- Section -->
+		<section>
+			<header class="major">
+				<h2>home</h2>
+			</header>
+			<div class="mini-posts">
+				<article>
+					<a href="#" class="image"><img src="/resources/images/pic07.jpg" alt="" /></a>
+					<!-- <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p> -->
+				</article>
+			</div>
+		<!-- 	<ul class="actions">
+				<li><a href="#" class="button">More</a></li>
+			</ul> -->
+		</section>
+		
 		<!-- Section -->
 		<section>
 			<header class="major">

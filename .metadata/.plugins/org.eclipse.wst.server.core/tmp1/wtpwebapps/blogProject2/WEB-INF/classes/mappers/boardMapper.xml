@@ -6,32 +6,42 @@
 <mapper namespace="mapper.BoardMapper" >
 
 	<select id="getBoardList" resultType="Map" parameterType="Map">
-		 SELECT /* boardMapper.xml-> getBoardList 게시글 리스트 Return */ 
-		 		ROW_NUMBER() OVER(ORDER BY A.REG_DT, A.BRD_ID) AS RN
-		 	  , B.CTG_NM
-		 	  , B.UP_CTG_ID
-		 	  , A.BRD_ID
-	          , A.CTG_ID
-	          , A.BRD_TITLE
-	          , A.BRD_CONT
-	          , A.DISP_YN
-	          , A.VIEW_CNT
-	          , TO_CHAR(A.REG_DT, 'YYYY.MM.DD') AS REG_DT
-	          , A.BRD_CONT_CLOB
-	       FROM T_BRD_INFO A
-	          , T_CTG_INFO B
-	      WHERE A.CTG_ID = B.CTG_ID
-	    <choose>
-   			<when test = 'ctgDepth == 1'>
-   				AND B.UP_CTG_ID = #{ctgId}
-   			</when>
-   			<otherwise>
-   				AND B.CTG_ID = #{ctgId} 
-   			</otherwise>
-		</choose>
-	      AND A.DISP_YN = 'Y'
-	      AND B.DISP_YN = 'Y'
-	 ORDER BY A.REG_DT DESC, A.BRD_ID DESC
+		 SELECT /* boardMapper.xml-> getBoardList 게시글 리스트 Return */  
+                    *
+              FROM (
+                    SELECT T.*
+                          ,COUNT(*) OVER() AS TOTAL_COUNT
+                          ,ROW_NUMBER() OVER (ORDER BY t.REG_DT DESC, t.BRD_ID DESC) RN
+                          ,ROW_NUMBER() OVER(ORDER BY t.REG_DT, t.BRD_ID) AS ROW_NUM
+                     FROM (   
+                            SELECT  B.CTG_NM
+                                  , B.UP_CTG_ID
+                                  , A.BRD_ID
+                                  , A.CTG_ID
+                                  , A.BRD_TITLE
+                                  , A.BRD_CONT
+                                  , A.DISP_YN
+                                  , A.VIEW_CNT
+                                  , TO_CHAR(A.REG_DT, 'YYYY.MM.DD') AS REG_DT
+                                  , A.BRD_CONT_CLOB
+                               FROM T_BRD_INFO A
+                                  , T_CTG_INFO B
+                              WHERE A.CTG_ID = B.CTG_ID
+							<choose>
+					   			<when test = 'ctgDepth == 1'>
+					   				AND B.UP_CTG_ID = #{ctgId}
+					   			</when>
+					   			<otherwise>
+					   				AND B.CTG_ID = #{ctgId} 
+					   			</otherwise>
+							</choose>
+                                AND A.DISP_YN = 'Y'
+                                AND B.DISP_YN = 'Y'
+                                
+                            ) T
+                            ORDER BY REG_DT DESC, BRD_ID DESC
+                    )
+                WHERE RN BETWEEN 1 and 30
 	</select>
 	
 	

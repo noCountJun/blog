@@ -1,0 +1,31 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	
+	<section id="banner">
+		<div class="content">
+			<header>
+				<h1>an se jun blog </h1>
+			</header>
+		</div>
+	</section>
+	
+	<h3>Login Form</h3>
+
+	<form method="post" action="#">
+		<div class="row gtr-uniform">
+			<div class="col-6 col-12-xsmall">
+				<input type="text" name="adminLoginId" id="adminLoginId" placeholder="id" maxlength="10"/>
+			</div>
+			<div class="col-6 col-12-xsmall">
+				<input type="password" name="adminPassword" id="adminPassword" placeholder="password" maxlength="10"/>
+			</div>
+			<div class="col-12">
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" class="primary" /></li>
+					<li><input type="reset" value="Reset" /></li>
+				</ul>
+			</div>
+		</div>
+	</form>

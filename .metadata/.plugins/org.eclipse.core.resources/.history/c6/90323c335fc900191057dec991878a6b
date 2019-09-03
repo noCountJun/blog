@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.commonMapper" >
+
+	<sql id="prePaging">
+		SELECT *
+		  FROM (
+		  		SELECT T.*
+		  			 , COUNT(*) OVER() AS TOTAL_COUNT
+		  			 , ROW_NUMBER() OVER (ORDER BY ${orderBy}) RN
+		  		  FROM  (
+	</sql>
+	
+	<sql id="postPaging">
+					) T
+				)
+		WHERE RN BETWEEN #{startRow} and #{endRow}
+	</sql>
+</mapper>
